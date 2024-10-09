@@ -21,11 +21,30 @@ function sortear() {
 
     let resultado = document.getElementById('resultado');
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>` //mudando  o conteudo da div "resultado"
-
+    alterarStatusBotao();
 }
 
 function obterNumeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //criando  um numero aleatorio entre o minimo e o maximo
 
 
+}
+
+function alterarStatusBotao() {
+    let botao = document.getElementById('btn-reiniciar'); //pegando o botao reiniciar
+    if (botao.classList.contains('container__botao-desabilitado')) { //se o botao  tiver a classe "container__botao-desabilidato"
+        botao.classList.remove('container__botao-desabilitado');  //remove a classe
+        botao.classList.add('container__botao'); //adiciona  a classe "container__botao"
+    }  else {  //se o botao nao tiver a classe "container__botao-desabilidato"
+        botao.classList.remove('container__botao'); //retira  a classe "container__botao"
+        botao.classList.add('container__botao-desabilitado')//adiciona  a classe "container__botao-desabilidato"
+    }
+}
+
+function reiniciar() { //voltando todos  os valores para o inicial
+    document.getElementById('quantidade').value = '';
+    document.getElementById('de').value = '';
+    document.getElementById('ate').value = '';
+    document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados: Nenhum ate agora </label>';
+    alterarStatusBotao();
 }
