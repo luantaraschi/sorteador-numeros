@@ -1,4 +1,4 @@
-<h1>Jogo do número secreto</h1>
+<h1>Sorteador de numeros</h1>
 
 <h2>📃 Sobre</h2>
 <p>Projeto utilizado no aprendizado de JavaScript.</p>
