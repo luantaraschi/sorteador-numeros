@@ -3,6 +3,14 @@ function sortear() {
     let de = parseInt(document.getElementById('de').value); //puxando as informacoes de valor da caixa "do numero"
     let ate = parseInt(document.getElementById('ate').value);//puxando as informacoes de valor da caixa "ate o numero"
 
+    let intervalo = ate - de + 1; // Calcula o intervalo total de números possíveis
+
+    // Verifica se a quantidade é maior que o intervalo
+    if (quantidade > intervalo) {
+        alert('Quantidade de números a ser sorteada é maior que o intervalo disponível.');
+        return; // Sai da função para evitar o loop infinito
+    }
+
     let sorteados = []; //criando array sorteados 
     let numero;
 
@@ -13,7 +21,7 @@ function sortear() {
         numero = obterNumeroAleatorio(de, ate);
 
         while (sorteados.includes(numero)) { //enquanto a variavel sorteados  incluir o numero, ele vai continuar sorteando
-            numero = obterNumeroAleatorio(de, ate); //ficara em loop ate que todos os numeros sorteados sejam exclusivos
+            numero = obterNumeroAleatorio(de, ate);//ficara em loop ate que todos os numeros sorteados sejam exclusivos
         }
 
         sorteados.push(numero); 
